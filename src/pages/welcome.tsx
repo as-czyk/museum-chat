@@ -6,6 +6,12 @@ import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import eintrachtLogo from "@/public/icon.svg";
+import Aron from "@/public/aron.png";
+import Helen from "@/public/helen.png";
+import Max from "@/public/max.png";
+import Link from "next/link";
+import { ArrowBigRight } from "lucide-react";
+
 export default function WelcomeScreen() {
   const router = useRouter();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -17,6 +23,27 @@ export default function WelcomeScreen() {
     "Wer war der Trainer beim DFB-Pokalsieg 2018?",
     "Welche Bedeutung hat der Adler im Vereinswappen?",
     "Erzähle mir etwas über die Geschichte des Waldstadions.",
+  ];
+
+  const contributors = [
+    {
+      name: "Max Wigger",
+      role: "Entwickler",
+      image: Max,
+      linkedin: "https://www.linkedin.com/in/max-wigger-a468052b5/",
+    },
+    {
+      name: "Helen Haveloh",
+      role: "Entwickler",
+      image: Helen,
+      linkedin: "https://www.linkedin.com/in/helen-haveloh-5559b718a/",
+    },
+    {
+      name: "Aron Scheffczyk",
+      role: "Entwickler",
+      image: Aron,
+      linkedin: "https://www.linkedin.com/in/aronscheffczyk/",
+    },
   ];
 
   useEffect(() => {
@@ -34,8 +61,8 @@ export default function WelcomeScreen() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-white p-4">
-      <div className="flex flex-col items-center max-w-md w-full">
+    <div className="grid grid-cols-2 grid-rows-[1fr_20%] min-h-screen">
+      <div className="col-span-2 flex flex-col items-center justify-center">
         {/* Logo */}
         <div className="mb-8 w-32 h-32">
           <Image
@@ -48,7 +75,7 @@ export default function WelcomeScreen() {
         </div>
 
         {/* Animierte Fragen */}
-        <div className="h-16 mb-12 w-full">
+        <div className="h-16 mb-12 w-full max-w-2xl mx-auto">
           <AnimatePresence mode="wait">
             <motion.p
               key={currentQuestionIndex}
@@ -56,7 +83,7 @@ export default function WelcomeScreen() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.4 }}
-              className="text-center text-gray-600 italic"
+              className="text-center italic"
             >
               "{exampleQuestions[currentQuestionIndex]}"
             </motion.p>
@@ -64,8 +91,46 @@ export default function WelcomeScreen() {
         </div>
 
         {/* Button */}
-        <Button onClick={handleStartChat}>Chat starten</Button>
+        <Button
+          onClick={handleStartChat}
+          className=" font-display tracking-wide py-3 px-6"
+        >
+          <ArrowBigRight className="w-4 h-4 mr-2" />
+          Chat starten
+        </Button>
       </div>
+
+      <footer className="col-span-2 border-t py-4 self-end text-muted-foreground">
+        <div className="max-w-3xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-8">
+            {contributors.map((contributor, index) => (
+              <div key={index} className="flex flex-col items-center">
+                <div className="flex items-center mb-3">
+                  <div className="w-14 h-14 rounded-full overflow-hidden mr-3 border border-accent">
+                    <Link href={contributor.linkedin} target="_blank">
+                      <Image
+                        src={contributor.image || "/placeholder.svg"}
+                        alt={`Foto von ${contributor.name}`}
+                        width={56}
+                        height={56}
+                        className="object-cover"
+                      />
+                    </Link>
+                  </div>
+                  <div>
+                    <h3 className="font-medium">{contributor.name}</h3>
+                    <p className="text-sm">{contributor.role}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-muted-foreground text-center text-xs mt-4">
+            © {new Date().getFullYear()} Eintracht Frankfurt Museum
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }
