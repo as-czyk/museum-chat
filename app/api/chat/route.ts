@@ -76,8 +76,6 @@ export async function POST(req: Request) {
 
     ${knowledgeContext}
 
-    Wenn du keine Informationen aus den Quellen findest, antworte mit:
-    "Dazu liegen mir aktuell keine gesicherten Informationen vor."
     `;
 
   const result = streamText({
