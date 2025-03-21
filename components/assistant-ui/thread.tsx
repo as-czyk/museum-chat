@@ -73,8 +73,8 @@ const ThreadWelcome: FC = () => {
     <ThreadPrimitive.Empty>
       <div className="flex w-full max-w-[var(--thread-max-width)] flex-grow flex-col">
         <div className="flex w-full flex-grow flex-col items-center justify-center">
-          <p className="mt-4 font-medium">
-            Aus der Liebe zu dir, da entstand dieser Chatbot ❤️
+          <p className="mt-4 font-medium text-muted-foreground italic">
+            "Aus der Liebe zu dir, da entstand dieser Chatbot ❤️"
           </p>
         </div>
       </div>
@@ -115,7 +115,7 @@ const Composer: FC = () => {
       <ComposerPrimitive.Input
         rows={1}
         autoFocus
-        placeholder="Write a message..."
+        placeholder="Stelle deine Frage..."
         className="placeholder:text-muted-foreground max-h-40 flex-grow resize-none border-none bg-transparent px-2 py-4 text-sm outline-none focus:ring-0 disabled:cursor-not-allowed"
       />
       <ComposerAction />
@@ -129,7 +129,7 @@ const ComposerAction: FC = () => {
       <ThreadPrimitive.If running={false}>
         <ComposerPrimitive.Send asChild>
           <TooltipIconButton
-            tooltip="Send"
+            tooltip="Senden"
             variant="default"
             className="my-2.5 size-8 p-2 transition-opacity ease-in"
           >
@@ -140,7 +140,7 @@ const ComposerAction: FC = () => {
       <ThreadPrimitive.If running>
         <ComposerPrimitive.Cancel asChild>
           <TooltipIconButton
-            tooltip="Cancel"
+            tooltip="Abbrechen"
             variant="default"
             className="my-2.5 size-8 p-2 transition-opacity ease-in"
           >
@@ -174,7 +174,7 @@ const UserActionBar: FC = () => {
       className="flex flex-col items-end col-start-1 row-start-2 mr-3 mt-2.5"
     >
       <ActionBarPrimitive.Edit asChild>
-        <TooltipIconButton tooltip="Edit">
+        <TooltipIconButton tooltip="Bearbeiten">
           <PencilIcon />
         </TooltipIconButton>
       </ActionBarPrimitive.Edit>
@@ -222,7 +222,7 @@ const AssistantActionBar: FC = () => {
       className="text-muted-foreground flex gap-1 col-start-3 row-start-2 -ml-1 data-[floating]:bg-background data-[floating]:absolute data-[floating]:rounded-md data-[floating]:border data-[floating]:p-1 data-[floating]:shadow-sm"
     >
       <ActionBarPrimitive.Copy asChild>
-        <TooltipIconButton tooltip="Copy">
+        <TooltipIconButton tooltip="Kopieren">
           <MessagePrimitive.If copied>
             <CheckIcon />
           </MessagePrimitive.If>
@@ -232,7 +232,7 @@ const AssistantActionBar: FC = () => {
         </TooltipIconButton>
       </ActionBarPrimitive.Copy>
       <ActionBarPrimitive.Reload asChild>
-        <TooltipIconButton tooltip="Refresh">
+        <TooltipIconButton tooltip="Aktualisieren">
           <RefreshCwIcon />
         </TooltipIconButton>
       </ActionBarPrimitive.Reload>

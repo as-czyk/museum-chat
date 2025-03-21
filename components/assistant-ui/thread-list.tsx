@@ -20,9 +20,12 @@ export const ThreadList: FC = () => {
 const ThreadListNew: FC = () => {
   return (
     <ThreadListPrimitive.New asChild>
-      <Button className="data-[active]:bg-muted hover:bg-muted flex items-center justify-start gap-1 rounded-lg px-2.5 py-2 text-start" variant="ghost">
+      <Button
+        className="data-[active]:bg-muted hover:bg-muted flex items-center justify-start gap-1 rounded-lg px-2.5 py-2 text-start"
+        variant="ghost"
+      >
         <PlusIcon />
-        New Thread
+        Neuer Chat
       </Button>
     </ThreadListPrimitive.New>
   );
@@ -57,7 +60,7 @@ const ThreadListItemArchive: FC = () => {
       <TooltipIconButton
         className="hover:text-primary text-foreground ml-auto mr-3 size-4 p-0"
         variant="ghost"
-        tooltip="Archive thread"
+        tooltip="Thread löschen"
       >
         <ArchiveIcon />
       </TooltipIconButton>
