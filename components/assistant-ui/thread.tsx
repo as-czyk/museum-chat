@@ -77,7 +77,6 @@ const ThreadWelcome: FC = () => {
             Aus der Liebe zu dir, da entstand dieser Chatbot ❤️
           </p>
         </div>
-        <ThreadWelcomeSuggestions />
       </div>
     </ThreadPrimitive.Empty>
   );
@@ -190,10 +189,10 @@ const EditComposer: FC = () => {
 
       <div className="mx-3 mb-3 flex items-center justify-center gap-2 self-end">
         <ComposerPrimitive.Cancel asChild>
-          <Button variant="ghost">Cancel</Button>
+          <Button variant="ghost">Abbrechen</Button>
         </ComposerPrimitive.Cancel>
         <ComposerPrimitive.Send asChild>
-          <Button>Send</Button>
+          <Button>Senden</Button>
         </ComposerPrimitive.Send>
       </div>
     </ComposerPrimitive.Root>

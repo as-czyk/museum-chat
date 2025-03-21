@@ -12,13 +12,11 @@ export default function ChatPage() {
 
   return (
     <AssistantRuntimeProvider runtime={runtime}>
-      <div className="grid h-dvh grid-cols-[200px_1fr] gap-x-2 px-4 py-4">
-        <div className="border-r border-gray-200">
+      <div className="grid h-dvh grid-cols-[200px_1fr] gap-x-2">
+        <div className="border-r border-gray-200  px-4 py-4">
           <ThreadList />
         </div>
-        <div className="bg-blue-500">
-          <Thread />
-        </div>
+        <Thread />
       </div>
     </AssistantRuntimeProvider>
   );

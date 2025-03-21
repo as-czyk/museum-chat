@@ -8,23 +8,22 @@ export async function POST(req: Request) {
   const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
   const region = process.env.AWS_REGION;
 
-  const bedrock = createAmazonBedrock({
-    region: region,
-    accessKeyId: accessKeyId,
-    secretAccessKey: secretAccessKey,
-    sessionToken: "xxxxxxxxx",
-  });
+  try {
+    const bedrock = createAmazonBedrock({
+      region: region,
+      accessKeyId: accessKeyId,
+      secretAccessKey: secretAccessKey,
+    });
 
-  const model = bedrock("anthropic.claude-3-sonnet-20240229-v1:0", {
-    additionalModelRequestFields: { top_k: 350 },
-  });
+    const model = bedrock("amazon.titan-text-premier-v1:0");
 
-  const result = streamText({
-    model: model,
-    messages,
-    // forward system prompt and tools from the frontend
-    system,
-  });
+    const result = streamText({
+      model: model,
+      messages,
+    });
 
-  return result.toDataStreamResponse();
+    return result.toDataStreamResponse();
+  } catch (error) {
+    console.error("EEEEERRROR", error);
+  }
 }
