@@ -17,6 +17,7 @@
     "@aws-sdk/client-bedrock": "^3.772.0",
     "@aws-sdk/client-bedrock-agent-runtime": "^3.772.0",
     "@aws-sdk/client-bedrock-runtime": "^3.772.0",
+    "@radix-ui/react-navigation-menu": "^1.2.5",
     "@radix-ui/react-slot": "^1.1.2",
     "@radix-ui/react-tooltip": "^1.1.8",
     "ai": "^4.2.0",

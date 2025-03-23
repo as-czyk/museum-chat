@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import eintrachtLogo from "@/public/icon.svg";
@@ -10,7 +10,14 @@ import Aron from "@/public/aron.png";
 import Helen from "@/public/helen.png";
 import Max from "@/public/max.png";
 import Link from "next/link";
-import { ArrowBigRight } from "lucide-react";
+import { ArrowBigRight, FileQuestionIcon, PaperclipIcon } from "lucide-react";
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+} from "@/components/ui/navigation-menu";
+import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
+import { cn } from "@/lib/utils";
 
 export default function WelcomeScreen() {
   const router = useRouter();
@@ -28,19 +35,19 @@ export default function WelcomeScreen() {
   const contributors = [
     {
       name: "Max Wigger",
-      role: "Entwickler",
+      role: "Data",
       image: Max,
       linkedin: "https://www.linkedin.com/in/max-wigger-a468052b5/",
     },
     {
       name: "Helen Haveloh",
-      role: "Entwickler",
+      role: "Cloud",
       image: Helen,
       linkedin: "https://www.linkedin.com/in/helen-haveloh-5559b718a/",
     },
     {
       name: "Aron Scheffczyk",
-      role: "Entwickler",
+      role: "Web",
       image: Aron,
       linkedin: "https://www.linkedin.com/in/aronscheffczyk/",
     },
@@ -61,8 +68,36 @@ export default function WelcomeScreen() {
   };
 
   return (
-    <div className="grid grid-cols-2 grid-rows-[1fr_20%] min-h-screen">
-      <div className="col-span-2 flex flex-col items-center justify-center">
+    <div className="grid grid-cols-2 grid-rows-[10%_1fr_20%] min-h-screen w-[90%] mx-auto">
+      <div className="row-span-1 col-span-2 flex flex-row items-center justify-end">
+        <Link
+          className={cn(
+            "text-muted-foreground",
+            navigationMenuTriggerStyle,
+            buttonVariants({
+              variant: "ghost",
+            })
+          )}
+          href={"/press-release"}
+        >
+          <PaperclipIcon className="w-4 h-4 mr-2" />
+          Press Release
+        </Link>
+        <Link
+          className={cn(
+            "text-muted-foreground",
+            navigationMenuTriggerStyle,
+            buttonVariants({
+              variant: "ghost",
+            })
+          )}
+          href={"/faq"}
+        >
+          <FileQuestionIcon className="w-4 h-4 mr-2" />
+          Frequently Asked Questions
+        </Link>
+      </div>
+      <div className="col-span-2 row-span-2 flex flex-col items-center justify-center">
         {/* Logo */}
         <div className="mb-8 w-32 h-32">
           <Image
@@ -100,7 +135,7 @@ export default function WelcomeScreen() {
         </Button>
       </div>
 
-      <footer className="col-span-2 border-t py-4 self-end text-muted-foreground">
+      <footer className="col-span-2 py-4 self-end text-muted-foreground">
         <div className="max-w-3xl mx-auto">
           <div className="flex flex-wrap justify-center gap-8">
             {contributors.map((contributor, index) => (
