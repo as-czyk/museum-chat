@@ -95,10 +95,15 @@ export default function PressRelease() {
                 Arbeiten und einen ineffizienten Transfer von Wissen.
               </li>
               <li>
-                <strong className="mr-2">Redundanz:</strong>
-                Die Fragmentierung des Wissens auf verschiedene Quellen und
-                Personen begünstigt Engpässe, Wiederholungen und einen
-                erschwerten Wissenstransfer.
+                <strong className="mr-2">Abhängigkeit von Personen:</strong>
+                Durch die Abhängigkeit von Personen, die das Wissen kennen,
+                besteht die Gefahr, dass das Wissen verloren geht, wenn diese
+                Personen aus dem Unternehmen ausscheiden.
+              </li>
+              <li>
+                <strong className="mr-2">Zeitaufwand:</strong>
+                Die manuelle Recherche von Informationen dauert länger und ist
+                fehleranfällig.
               </li>
             </ul>
           </div>

@@ -1,28 +1,23 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { Button, buttonVariants } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
-import Image from "next/image";
-import eintrachtLogo from "@/public/icon.svg";
+import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
+import { cn } from "@/lib/utils";
 import Aron from "@/public/aron.png";
 import Helen from "@/public/helen.png";
+import eintrachtLogo from "@/public/icon.svg";
 import Max from "@/public/max.png";
-import Link from "next/link";
+import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowBigRight,
   FileQuestionIcon,
   PaperclipIcon,
   TorusIcon,
 } from "lucide-react";
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-} from "@/components/ui/navigation-menu";
-import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
-import { cn } from "@/lib/utils";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function WelcomeScreen() {
   const router = useRouter();
