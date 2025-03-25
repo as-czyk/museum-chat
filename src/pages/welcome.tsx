@@ -10,7 +10,12 @@ import Aron from "@/public/aron.png";
 import Helen from "@/public/helen.png";
 import Max from "@/public/max.png";
 import Link from "next/link";
-import { ArrowBigRight, FileQuestionIcon, PaperclipIcon } from "lucide-react";
+import {
+  ArrowBigRight,
+  FileQuestionIcon,
+  PaperclipIcon,
+  TorusIcon,
+} from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -70,6 +75,19 @@ export default function WelcomeScreen() {
   return (
     <div className="grid grid-cols-2 grid-rows-[10%_1fr_20%] min-h-screen w-[90%] mx-auto">
       <div className="row-span-1 col-span-2 flex flex-row items-center justify-end">
+        <Link
+          className={cn(
+            "text-muted-foreground",
+            navigationMenuTriggerStyle,
+            buttonVariants({
+              variant: "ghost",
+            })
+          )}
+          href={"/product-tour"}
+        >
+          <TorusIcon className="w-4 h-4 mr-2" />
+          Product Tour
+        </Link>
         <Link
           className={cn(
             "text-muted-foreground",
